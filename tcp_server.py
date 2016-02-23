@@ -1,8 +1,8 @@
 # coding:utf-8
 import socket
-# import threading
+import threading
 import time
-import concurrent.futures
+# import concurrent.futures
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('127.0.0.1', 8080))
@@ -26,6 +26,6 @@ while True:
     # 接受一个新连接:
     sock, addr = s.accept()
     # 创建新线程来处理TCP连接:
-    t = concurrent.futures.ThreadPoolExecutor(max_workers=5).submit(tcplink, sock, addr)
-    # t = threading.Thread(target=tcplink, args=(sock, addr))
-    # t.start()
+    # t = concurrent.futures.ThreadPoolExecutor(max_workers=5).submit(tcplink, sock, addr)
+    t = threading.Thread(target=tcplink, args=(sock, addr))
+    t.start()

@@ -2,7 +2,7 @@
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 建立连接:
-s.connect(('127.0.0.1', 8080))
+s.connect(('182.92.180.144', 8080))
 # 接收欢迎消息:
 print s.recv(1024)
 for data in ['Michael', 'Tracy', 'Sarah']:
